@@ -1,0 +1,6 @@
+[report]
+include =
+    src/iosanita/*
+omit =
+    */test*
+    */upgrades/*
