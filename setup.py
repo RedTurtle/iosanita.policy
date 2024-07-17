@@ -59,6 +59,7 @@ setup(
         "plone.app.dexterity",
         "redturtle.volto",
         "iosanita.contenttypes",
+        "collective.volto.enhancedlinks",
     ],
     extras_require={
         "test": [
