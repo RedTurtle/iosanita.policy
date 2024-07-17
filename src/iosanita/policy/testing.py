@@ -1,55 +1,57 @@
 # -*- coding: utf-8 -*-
-from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from iosanita.contenttypes.testing import TestLayer as ContentTypesTestLayer
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
-from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import PloneSandboxLayer
-from plone.testing import z2
+from plone.testing.zope import WSGI_SERVER_FIXTURE
+from zope.configuration import xmlconfig
 
+import collective.feedback
+import collective.volto.enhancedlinks
+import iosanita.contenttypes
 import iosanita.policy
+import redturtle.volto
+import souper.plone
 
 
-class IosanitaPolicyLayer(PloneSandboxLayer):
-
-    defaultBases = (PLONE_FIXTURE,)
-
+class TestLayer(ContentTypesTestLayer):
     def setUpZope(self, app, configurationContext):
-        # Load any other ZCML that is required for your tests.
-        # The z3c.autoinclude feature is disabled in the Plone fixture base
-        # layer.
-        import plone.app.dexterity
+        super().setUpZope(app, configurationContext)
 
-        self.loadZCML(package=plone.app.dexterity)
-        import plone.restapi
+        self.loadZCML(package=redturtle.volto)
+        self.loadZCML(package=iosanita.contenttypes)
+        self.loadZCML(package=collective.volto.enhancedlinks)
+        self.loadZCML(package=collective.feedback)
+        self.loadZCML(package=souper.plone)
 
-        self.loadZCML(package=plone.restapi)
-        self.loadZCML(package=iosanita.policy)
+        self.loadZCML(package=iosanita.policy, context=configurationContext)
+        self.loadZCML(package=collective.taxonomy)
+        xmlconfig.file(
+            "configure.zcml",
+            iosanita.policy,
+            context=configurationContext,
+        )
 
     def setUpPloneSite(self, portal):
+        super().setUpPloneSite(portal)
         applyProfile(portal, "iosanita.policy:default")
 
 
-IOSANITA_POLICY_FIXTURE = IosanitaPolicyLayer()
+FIXTURE = TestLayer()
 
 
-IOSANITA_POLICY_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(IOSANITA_POLICY_FIXTURE,),
-    name="IosanitaPolicyLayer:IntegrationTesting",
+INTEGRATION_TESTING = IntegrationTesting(
+    bases=(FIXTURE,),
+    name="IoSanitaPolicyLayer:IntegrationTesting",
 )
 
 
-IOSANITA_POLICY_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(IOSANITA_POLICY_FIXTURE,),
-    name="IosanitaPolicyLayer:FunctionalTesting",
+FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(FIXTURE,),
+    name="IoSanitaPolicyLayer:FunctionalTesting",
 )
 
-
-IOSANITA_POLICY_ACCEPTANCE_TESTING = FunctionalTesting(
-    bases=(
-        IOSANITA_POLICY_FIXTURE,
-        REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
-    ),
-    name="IosanitaPolicyLayer:AcceptanceTesting",
+RESTAPI_TESTING = FunctionalTesting(
+    bases=(FIXTURE, WSGI_SERVER_FIXTURE),
+    name="IoSanitaPolicyLayer:RestAPITesting",
 )

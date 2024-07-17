@@ -27,43 +27,73 @@
     :alt: License
 
 
-===============
-iosanita.policy
-===============
+=======================
+IO-Sanita policy
+=======================
 
-An add-on for Plone
+Policy per il backend dei portali Io-Sanita.
 
-Features
---------
-
-- Can be bullet points
+Questo pacchetto si occupa di installare tutte le dipendenze necessarie per il progetto.
 
 
-Examples
---------
+Rotte API
+=========
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+@tassonomie-search
+------------------
+
+Endpoint che serve a ricercare i contenuti marcati da una determinata tassonomia.
+
+Parametri:
+
+- **type** (obbligatorio): il nome dell'indice in catalogo della tassonomia
+- **value**: un eventuale valore per filtrare l'indice
+- **portal_type**: un filtro su uno specifico portal_type
+
+Le tassonomie (*type*) utilizzabili sono limitate:
+
+- parliamo_di
+- a_chi_si_rivolge_tassonomia
+
+Esempio di chiamata::
+
+    > http://localhost:8080/Plone/++api++/@search-tassonomie?type=a_chi_si_rivolge_tassonomia
 
 
-Documentation
--------------
+Risposta::
 
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+    {
+        "@id": "http://localhost:8080/Plone/++api++/@search-tassonomie?type=a_chi_si_rivolge_tassonomia",
+        "facets": {
+            "portal_types": [
+                {
+                    "title": "Struttura",
+                    "token": "Struttura"
+                }
+            ]
+        },
+        "items": [
+            {
+            "@id": "http://localhost:8080/Plone/struttura",
+            "@type": "Struttura",
+            "description": "",
+            "enhanced_links_enabled": null,
+            "getObjSize": "0 KB",
+            "image_field": "",
+            "image_scales": null,
+            "mime_type": "text/plain",
+            "review_state": "private",
+            "title": "struttura",
+            "type_title": "Struttura"
+            }
+        ],
+        "items_total": 1
+    }
 
+Installazione
+=============
 
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
-
-
-Installation
-------------
-
-Install iosanita.policy by adding it to your buildout::
+Per installare iosanita.policy bisogna per prima cosa aggiungerlo al buildout::
 
     [buildout]
 
@@ -73,39 +103,28 @@ Install iosanita.policy by adding it to your buildout::
         iosanita.policy
 
 
-and then running ``bin/buildout``
+e poi lanciare il buildout con ``bin/buildout``.
+
+Successivamente va installato dal pannello di controllo di Plone.
 
 
-Authors
--------
+Contribuisci
+============
 
-Provided by awesome people ;)
-
-
-Contributors
-------------
-
-Put your name here, you deserve it!
-
-- ?
+- Issue Tracker: https://github.com/redturtle/iosanita.policy/issues
+- Codice sorgente: https://github.com/redturtle/iosanita.policy
 
 
-Contribute
-----------
+Licenza
+=======
 
-- Issue Tracker: https://github.com/collective/iosanita.policy/issues
-- Source Code: https://github.com/collective/iosanita.policy
-- Documentation: https://docs.plone.org/foo/bar
+Questo progetto è rilasciato con licenza GPLv2.
 
+Autori
+======
 
-Support
--------
+Questo progetto è stato sviluppato da **RedTurtle Technology**.
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
-
-
-License
--------
-
-The project is licensed under the GPLv2.
+.. image:: https://avatars1.githubusercontent.com/u/1087171?s=100&v=4
+   :alt: RedTurtle Technology Site
+   :target: http://www.redturtle.it/
