@@ -26,7 +26,6 @@ class SearchTassonomieGet(Service):
     def reply(self):
         index = self.request.form.get("type", "")
         value = self.request.form.get("value", "")
-        portal_type = self.request.form.get("portal_type", "")
 
         if not index:
             raise BadRequest(
