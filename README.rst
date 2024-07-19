@@ -39,7 +39,7 @@ Questo pacchetto si occupa di installare tutte le dipendenze necessarie per il p
 Rotte API
 =========
 
-@tassonomie-search
+@search-tassonomie
 ------------------
 
 Endpoint che serve a ricercare i contenuti marcati da una determinata tassonomia.
