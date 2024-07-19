@@ -58,6 +58,23 @@ class TestStrutturaSchema(unittest.TestCase):
         self.assertEqual(res["items"][0]["title"], self.news.title)
         self.assertEqual(res["items"][1]["title"], self.event.title)
 
+    def test_passing_sort_order_return_sorted_results(self):
+        res = self.api_session.get(
+            "@search-tassonomie?type=parliamo_di&sort_on=sortable_title"
+        ).json()
+
+        self.assertEqual(res["items_total"], 2)
+        self.assertEqual(res["items"][0]["title"], self.event.title)
+        self.assertEqual(res["items"][1]["title"], self.news.title)
+
+        res = self.api_session.get(
+            "@search-tassonomie?type=parliamo_di&sort_on=sortable_title&sort_order=descending"
+        ).json()
+
+        self.assertEqual(res["items_total"], 2)
+        self.assertEqual(res["items"][0]["title"], self.news.title)
+        self.assertEqual(res["items"][1]["title"], self.event.title)
+
     def test_passing_type_and_value_show_filtered_results(self):
         res = self.api_session.get(
             "@search-tassonomie?type=parliamo_di&value=Alimentazione"

@@ -12,6 +12,15 @@ from zope.schema.interfaces import IVocabularyFactory
 
 ALLOWED_TAXONOMIES = ["parliamo_di", "a_chi_si_rivolge_tassonomia"]
 
+BASE_FILTERS = [
+    "portal_type",
+    "sort_on",
+    "sort_order",
+    "fullobjects",
+    "b_start",
+    "b_size",
+]
+
 
 class SearchTassonomieGet(Service):
     def reply(self):
@@ -37,6 +46,14 @@ class SearchTassonomieGet(Service):
             )
         pc = api.portal.get_tool(name="portal_catalog")
         query = {}
+
+        # add standard query filters
+        for query_index in BASE_FILTERS:
+            value = self.request.form.get(query_index, "")
+            if value:
+                query[query_index] = value
+
+        # then filter by taxonomy
         all_values = pc.uniqueValuesFor(index)
 
         if value:
@@ -44,8 +61,8 @@ class SearchTassonomieGet(Service):
         else:
             # return all
             query[index] = all_values
-        if portal_type:
-            query["portal_type"] = portal_type
+
+        # and do search
         brains = api.content.find(**query)
         batch = HypermediaBatch(self.request, brains)
         results = {}

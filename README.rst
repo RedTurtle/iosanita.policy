@@ -49,6 +49,8 @@ Parametri:
 - **type** (obbligatorio): il nome dell'indice in catalogo della tassonomia
 - **value**: un eventuale valore per filtrare l'indice
 - **portal_type**: un filtro su uno specifico portal_type
+- **sort_on**: permette di ordinare i risultati in base ad un determinato indice
+- **sort_order**: permette di scegliere l'ordinamento da usare
 
 Le tassonomie (*type*) utilizzabili sono limitate:
 
