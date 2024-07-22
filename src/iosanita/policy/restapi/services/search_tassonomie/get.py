@@ -48,9 +48,9 @@ class SearchTassonomieGet(Service):
 
         # add standard query filters
         for query_index in BASE_FILTERS:
-            value = self.request.form.get(query_index, "")
-            if value:
-                query[query_index] = value
+            value_index = self.request.form.get(query_index, "")
+            if value_index:
+                query[query_index] = value_index
 
         # then filter by taxonomy
         all_values = pc.uniqueValuesFor(index)
