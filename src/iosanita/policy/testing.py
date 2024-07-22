@@ -10,22 +10,20 @@ import collective.feedback
 import collective.volto.enhancedlinks
 import iosanita.contenttypes
 import iosanita.policy
-import redturtle.volto
 import souper.plone
+import plone.app.caching
 
 
 class TestLayer(ContentTypesTestLayer):
     def setUpZope(self, app, configurationContext):
         super().setUpZope(app, configurationContext)
-
-        self.loadZCML(package=redturtle.volto)
+        self.loadZCML(package=plone.app.caching)
         self.loadZCML(package=iosanita.contenttypes)
         self.loadZCML(package=collective.volto.enhancedlinks)
         self.loadZCML(package=collective.feedback)
         self.loadZCML(package=souper.plone)
-
         self.loadZCML(package=iosanita.policy, context=configurationContext)
-        self.loadZCML(package=collective.taxonomy)
+
         xmlconfig.file(
             "configure.zcml",
             iosanita.policy,
@@ -33,7 +31,7 @@ class TestLayer(ContentTypesTestLayer):
         )
 
     def setUpPloneSite(self, portal):
-        super().setUpPloneSite(portal)
+        applyProfile(portal, "plone.app.caching:default")
         applyProfile(portal, "iosanita.policy:default")
 
 
