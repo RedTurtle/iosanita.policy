@@ -46,19 +46,19 @@ class TestStrutturaSchema(unittest.TestCase):
     def tearDown(self):
         self.api_session.close()
 
-    def test_endpoint_return_bad_request_if_missing_parameter(self):
+    def test_endpoint_reply_bad_request_if_missing_parameter(self):
         res = self.api_session.get("@search-tassonomie")
         self.assertEqual(res.status_code, 400)
         self.assertEqual(res.json()["message"], "Missing parameter: type")
 
-    def test_passing_type_show_all_results(self):
+    def test_passing_type_reply_all_results(self):
         res = self.api_session.get("@search-tassonomie?type=parliamo_di").json()
 
         self.assertEqual(res["items_total"], 2)
         self.assertEqual(res["items"][0]["title"], self.news.title)
         self.assertEqual(res["items"][1]["title"], self.event.title)
 
-    def test_passing_sort_order_return_sorted_results(self):
+    def test_passing_sort_order_reply_sorted_results(self):
         res = self.api_session.get(
             "@search-tassonomie?type=parliamo_di&sort_on=sortable_title"
         ).json()
@@ -75,7 +75,7 @@ class TestStrutturaSchema(unittest.TestCase):
         self.assertEqual(res["items"][0]["title"], self.news.title)
         self.assertEqual(res["items"][1]["title"], self.event.title)
 
-    def test_passing_type_and_value_show_filtered_results(self):
+    def test_passing_type_and_value_reply_filtered_results(self):
         res = self.api_session.get(
             "@search-tassonomie?type=parliamo_di&value=Alimentazione"
         ).json()
@@ -91,7 +91,7 @@ class TestStrutturaSchema(unittest.TestCase):
         self.assertEqual(res["items_total"], 1)
         self.assertEqual(res["items"][0]["title"], self.news.title)
 
-    def test_passing_not_accepted_index_return_bad_request(self):
+    def test_passing_not_accepted_index_reply_bad_request(self):
         res = self.api_session.get("@search-tassonomie?type=xxx")
         self.assertEqual(res.status_code, 400)
         self.assertEqual(res.json()["message"], "Unkwnown taxonomy: xxx")
@@ -107,7 +107,7 @@ class TestStrutturaSchema(unittest.TestCase):
         ).json()
         self.assertEqual(res["items_total"], 1)
 
-    def test_endpoint_return_facets_for_all_portal_types_with_at_least_one_reference(
+    def test_endpoint_reply_facets_for_all_portal_types_with_at_least_one_reference(
         self,
     ):
         res = self.api_session.get(
