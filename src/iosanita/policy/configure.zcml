@@ -14,13 +14,14 @@
   -->
   <!--<includeDependencies package="." />-->
 
-  <include package=".browser" />
+  <include package=".restapi" />
+
 
   <include file="permissions.zcml" />
 
   <genericsetup:registerProfile
       name="default"
-      title="iosanita.policy"
+      title="IO-Sanita: Policy"
       description="Installs the iosanita.policy add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       directory="profiles/default"
@@ -29,7 +30,7 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="iosanita.policy (uninstall)"
+      title="IO-Sanita: Policy (uninstall)"
       description="Uninstalls the iosanita.policy add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       directory="profiles/uninstall"

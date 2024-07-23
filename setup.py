@@ -54,12 +54,10 @@ setup(
     install_requires=[
         "setuptools",
         # -*- Extra requirements: -*-
-        "z3c.jbot",
         "plone.api>=1.8.4",
-        "plone.app.dexterity",
-        "redturtle.volto",
         "iosanita.contenttypes",
         "collective.volto.enhancedlinks",
+        "collective.feedback",
     ],
     extras_require={
         "test": [
@@ -70,6 +68,7 @@ setup(
             "plone.testing>=5.0.0",
             "plone.app.contenttypes",
             "plone.app.robotframework[debug]",
+            "collective.MockMailHost",
         ],
     },
     entry_points="""

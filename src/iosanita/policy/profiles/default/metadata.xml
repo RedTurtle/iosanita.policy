@@ -3,8 +3,8 @@
   <version>1000</version>
   <dependencies>
     <!--<dependency>profile-plone.app.dexterity:default</dependency>-->
-    <dependency>profile-redturtle.volto:default</dependency>
     <dependency>profile-iosanita.contenttypes:default</dependency>
     <dependency>profile-collective.volto.enhancedlinks:default</dependency>
+    <dependency>profile-collective.feedback:default</dependency>
   </dependencies>
 </metadata>
