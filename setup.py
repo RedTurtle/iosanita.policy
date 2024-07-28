@@ -58,6 +58,7 @@ setup(
         "iosanita.contenttypes",
         "collective.volto.enhancedlinks",
         "collective.feedback",
+        "collective.volto.slimheader",
     ],
     extras_require={
         "test": [

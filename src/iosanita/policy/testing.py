@@ -8,6 +8,7 @@ from zope.configuration import xmlconfig
 
 import collective.feedback
 import collective.volto.enhancedlinks
+import collective.volto.slimheader
 import iosanita.contenttypes
 import iosanita.policy
 import souper.plone
@@ -22,6 +23,7 @@ class TestLayer(ContentTypesTestLayer):
         self.loadZCML(package=collective.volto.enhancedlinks)
         self.loadZCML(package=collective.feedback)
         self.loadZCML(package=souper.plone)
+        self.loadZCML(package=collective.volto.slimheader)
         self.loadZCML(package=iosanita.policy, context=configurationContext)
 
         xmlconfig.file(
