@@ -6,4 +6,10 @@
 
   <include package=".search_tassonomie" />
 
+  <adapter
+      factory=".controlpanel.IoSanitaSettings"
+      provides="iosanita.policy.controlpanels.settings.IIoSanitaSettings"
+      name="iosanita-settings"
+      />
+
 </configure>
