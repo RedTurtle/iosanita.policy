@@ -11,8 +11,8 @@ import collective.volto.enhancedlinks
 import collective.volto.slimheader
 import iosanita.contenttypes
 import iosanita.policy
-import souper.plone
 import plone.app.caching
+import souper.plone
 
 
 class TestLayer(ContentTypesTestLayer):
