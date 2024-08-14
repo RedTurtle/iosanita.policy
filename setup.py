@@ -59,6 +59,7 @@ setup(
         "collective.volto.enhancedlinks",
         "collective.feedback",
         "collective.volto.slimheader",
+        "iw.rejectanonymous",
     ],
     extras_require={
         "test": [

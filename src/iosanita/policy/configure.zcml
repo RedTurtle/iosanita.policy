@@ -45,4 +45,11 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <subscriber
+      for="Products.CMFCore.interfaces.ISiteRoot
+           zope.traversing.interfaces.IBeforeTraverseEvent"
+      handler=".rejectanonymous.insertRejectAnonymousHook"
+      />
+
+
 </configure>
