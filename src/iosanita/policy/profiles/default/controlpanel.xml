@@ -5,7 +5,7 @@
 >
 
   <configlet action_id="IoSanitaSettings"
-             appId="iosanita.settings"
+             appId="IoSanitaSettings"
              category="Products"
              condition_expr=""
              icon_expr=""

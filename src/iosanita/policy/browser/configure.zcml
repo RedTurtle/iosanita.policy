@@ -13,8 +13,9 @@
   <browser:page
       name="iosanita-settings"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      class=".controlpanel.IoSanitaSettingsView"
+      class=".controlpanel.IoSanitaControlPanel"
       permission="cmf.ManagePortal"
+      layer="iosanita.policy.interfaces.IIosanitaPolicyLayer"
       />
 
 </configure>

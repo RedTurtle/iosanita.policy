@@ -1,17 +1,12 @@
-# -*- coding: utf-8 -*-
-from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
-from plone.app.registry.browser.controlpanel import RegistryEditForm
 from iosanita.policy import _
-from iosanita.policy.controlpanels.settings import IIoSanitaSettings
+from iosanita.policy.interfaces import IIoSanitaSettings
+from plone.app.registry.browser import controlpanel
 
 
-class IoSanitaSettingsForm(RegistryEditForm):
+class IoSanitaSettingsForm(controlpanel.RegistryEditForm):
     schema = IIoSanitaSettings
-    id = "iosanita-settings"
-    label = _("IoSanita Settings")
+    label = _("iosanita_settings_label", default="Io-Sanità Settings")
 
 
-class IoSanitaSettingsView(ControlPanelFormWrapper):
-    """ """
-
+class IoSanitaControlPanel(controlpanel.ControlPanelFormWrapper):
     form = IoSanitaSettingsForm
