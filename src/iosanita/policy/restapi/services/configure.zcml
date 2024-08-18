@@ -5,5 +5,7 @@
     >
 
   <include package=".search_tassonomie" />
+  <include package=".search_filters" />
+
 
 </configure>
