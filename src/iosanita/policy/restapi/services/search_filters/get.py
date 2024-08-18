@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from iosanita.policy import _
 from plone import api
 from plone.restapi.interfaces import ISerializeToJsonSummary
 from plone.restapi.services import Service
