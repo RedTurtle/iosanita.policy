@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
+from AccessControl.unauthorized import Unauthorized
+from iosanita.policy.interfaces import IIoSanitaSettings
 from plone import api
 from plone.restapi.interfaces import ISerializeToJsonSummary
 from plone.restapi.services import Service
 from zope.component import getMultiAdapter
-from iosanita.policy.interfaces import IIoSanitaSettings
-from AccessControl.unauthorized import Unauthorized
 
 import json
 
