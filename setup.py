@@ -61,6 +61,7 @@ setup(
         "collective.volto.slimheader",
         "iw.rejectanonymous",
         "collective.volto.dropdownmenu",
+        "collective.volto.socialsettings",
     ],
     extras_require={
         "test": [

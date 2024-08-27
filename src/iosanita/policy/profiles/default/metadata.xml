@@ -8,5 +8,6 @@
     <dependency>profile-collective.feedback:default</dependency>
     <dependency>profile-collective.volto.slimheader:default</dependency>
     <dependency>profile-collective.volto.dropdownmenu:default</dependency>
+    <dependency>profile-collective.volto.socialsettings:default</dependency>
   </dependencies>
 </metadata>
