@@ -26,9 +26,6 @@ class ControlpanelTest(unittest.TestCase):
     def test_controlpanel_exists(self):
         response = self.api_session.get("/@controlpanels/iosanita-settings")
 
-        import pdb
-
-        pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers.get("Content-Type"), "application/json")
 
