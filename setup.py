@@ -60,6 +60,7 @@ setup(
         "collective.feedback",
         "collective.volto.slimheader",
         "iw.rejectanonymous",
+        "collective.volto.dropdownmenu",
     ],
     extras_require={
         "test": [
