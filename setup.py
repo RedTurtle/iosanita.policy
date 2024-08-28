@@ -62,6 +62,10 @@ setup(
         "iw.rejectanonymous",
         "collective.volto.dropdownmenu",
         "collective.volto.socialsettings",
+        "redturtle.faq",
+        "auslfe.farmacie",
+        "redturtle.bandi",
+        "collective.volto.subsites",
     ],
     extras_require={
         "test": [
