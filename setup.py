@@ -66,6 +66,7 @@ setup(
         "auslfe.farmacie",
         "redturtle.bandi",
         "collective.volto.subsites",
+        "redturtle.voltoplugin.editablefooter",
     ],
     extras_require={
         "test": [

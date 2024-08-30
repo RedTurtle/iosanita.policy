@@ -13,5 +13,6 @@
     <dependency>profile-auslfe.farmacie:default</dependency>
     <dependency>profile-redturtle.bandi:default</dependency>
     <dependency>profile-collective.volto.subsites:default</dependency>
+    <dependency>profile-redturtle.voltoplugin.editablefooter:default</dependency>
   </dependencies>
 </metadata>
