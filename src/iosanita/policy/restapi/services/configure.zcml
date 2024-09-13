@@ -6,6 +6,8 @@
 
   <include package=".search_tassonomie" />
   <include package=".search_filters" />
+  <include package=".iosanita_settings" />
+
 
 
 </configure>

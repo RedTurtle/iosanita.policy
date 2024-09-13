@@ -6,6 +6,7 @@
   <include package="plone.restapi" />
   <include package=".services" />
 
+
   <!-- enable controlpanel on plone.restapi -->
   <adapter
       factory=".controlpanel.IoSanitaSettingsControlpanel"

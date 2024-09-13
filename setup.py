@@ -67,6 +67,7 @@ setup(
         "redturtle.bandi",
         "collective.volto.subsites",
         "redturtle.voltoplugin.editablefooter",
+        "collective.volto.subfooter",
     ],
     extras_require={
         "test": [
