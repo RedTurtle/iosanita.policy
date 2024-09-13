@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
+from iosanita.policy.interfaces import IIoSanitaSettings
+from plone import api
 from plone.restapi.interfaces import IExpandableElement
 from plone.restapi.services import Service
 from zope.component import adapter
-from iosanita.policy.interfaces import IIoSanitaSettings
-from plone import api
 from zope.interface import implementer
 from zope.interface import Interface
 

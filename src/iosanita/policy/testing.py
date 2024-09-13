@@ -7,15 +7,15 @@ from plone.testing.zope import WSGI_SERVER_FIXTURE
 from zope.configuration import xmlconfig
 
 import collective.feedback
+import collective.volto.dropdownmenu
 import collective.volto.enhancedlinks
 import collective.volto.slimheader
+import collective.volto.socialsettings
+import collective.volto.subfooter
 import iosanita.contenttypes
 import iosanita.policy
 import plone.app.caching
 import souper.plone
-import collective.volto.dropdownmenu
-import collective.volto.socialsettings
-import collective.volto.subfooter
 
 
 class TestLayer(ContentTypesTestLayer):
