@@ -9,6 +9,7 @@
     <dependency>profile-collective.volto.slimheader:default</dependency>
     <dependency>profile-collective.volto.dropdownmenu:default</dependency>
     <dependency>profile-collective.volto.socialsettings:default</dependency>
+    <dependency>profile-collective.volto.secondarymenu:default</dependency>
     <dependency>profile-redturtle.faq:default</dependency>
     <dependency>profile-auslfe.farmacie:default</dependency>
     <dependency>profile-redturtle.bandi:default</dependency>

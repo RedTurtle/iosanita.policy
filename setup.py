@@ -62,6 +62,7 @@ setup(
         "iw.rejectanonymous",
         "collective.volto.dropdownmenu",
         "collective.volto.socialsettings",
+        "collective.volto.secondarymenu",
         "redturtle.faq",
         "auslfe.farmacie",
         "redturtle.bandi",
