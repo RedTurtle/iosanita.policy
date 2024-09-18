@@ -69,6 +69,7 @@ setup(
         "collective.volto.subsites",
         "redturtle.voltoplugin.editablefooter",
         "collective.volto.subfooter",
+        "collective.volto.formsupport",
     ],
     extras_require={
         "test": [

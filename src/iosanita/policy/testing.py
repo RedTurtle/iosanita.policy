@@ -16,6 +16,7 @@ import iosanita.contenttypes
 import iosanita.policy
 import plone.app.caching
 import souper.plone
+import collective.volto.formsupport
 
 
 class TestLayer(ContentTypesTestLayer):
@@ -30,6 +31,7 @@ class TestLayer(ContentTypesTestLayer):
         self.loadZCML(package=collective.volto.dropdownmenu)
         self.loadZCML(package=collective.volto.socialsettings)
         self.loadZCML(package=collective.volto.subfooter)
+        self.loadZCML(package=collective.volto.formsupport)
         self.loadZCML(package=iosanita.policy, context=configurationContext)
 
         xmlconfig.file(
