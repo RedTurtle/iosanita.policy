@@ -43,26 +43,13 @@ class IIoSanitaSettings(Interface):
         value_type=TextLine(),
     )
 
-    search_sections = SourceText(
-        title=_("search_sections_label", default="Sezioni ricerca"),
+    quick_search = SourceText(
+        title=_("quick_search_label", default="Scorcatoie di ricerca"),
         description=_(
-            "search_sections_help",
-            default="Inserire una lista di sezioni per la ricerca.",
+            "quick_search_help",
+            default="Inserire una lista di scorciatoie per la ricerca.",
         ),
         default="",
-        required=False,
-    )
-
-    show_modified_default = Bool(
-        title=_("show_modified_default_label", default="Mostra la data di modifica"),
-        description=_(
-            "show_modified_default_help",
-            default="Questo è il valore di default per decidere se mostrare "
-            "o meno la data di modifica nei contenuti che hanno la behavior "
-            "abilitata. E' poi possibile sovrascrivere il default nei singoli "
-            'contenuti (nel tab "Impostazioni").',
-        ),
-        default=True,
         required=False,
     )
 
