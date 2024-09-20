@@ -29,6 +29,10 @@ class SearchFiltersGET(Service):
             items = []
             for section_settings in setting.get("items") or []:
                 for uid in section_settings.get("linkUrl") or []:
+                    if isinstance(uid, dict):
+                        uid = uid.get("UID", "")
+                    if not uid:
+                        continue
                     try:
                         section = api.content.get(UID=uid)
                     except Unauthorized:
