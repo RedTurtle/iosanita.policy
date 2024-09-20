@@ -53,18 +53,6 @@ class IIoSanitaSettings(Interface):
         required=False,
     )
 
-    quick_search_sections = SourceText(
-        title=_(
-            "quick_search_sections_label", default="Percorsi per la ricerca rapida"
-        ),
-        description=_(
-            "search_sections_help",
-            default="Inserire una lista di sezioni per la ricerca rapida.",
-        ),
-        default="",
-        required=False,
-    )
-
     show_modified_default = Bool(
         title=_("show_modified_default_label", default="Mostra la data di modifica"),
         description=_(

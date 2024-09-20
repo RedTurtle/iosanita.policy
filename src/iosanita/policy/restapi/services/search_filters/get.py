@@ -13,9 +13,6 @@ class SearchFiltersGET(Service):
     def reply(self):
         return {
             "sections": self.get_section_data(field_id="search_sections"),
-            "quick_search_sections": self.get_section_data(
-                field_id="quick_search_sections"
-            ),
         }
 
     def get_section_data(self, field_id):

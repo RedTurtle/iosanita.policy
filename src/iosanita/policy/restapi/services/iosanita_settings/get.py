@@ -27,19 +27,22 @@ class IoSanitaSettings(object):
             }
         }
 
-        contatti_testata = (
-            api.portal.get_registry_record(
-                "contatti_testata", interface=IIoSanitaSettings
-            )
-            or ""
+        result["iosanita-settings"]["contatti_testata"] = self.get_field_from_registry(
+            field_name="contatti_testata"
         )
-        if contatti_testata:
-            contatti_testata = json.loads(contatti_testata)
-        else:
-            contatti_testata = None
-        result["iosanita-settings"]["contatti_testata"] = contatti_testata
 
         return result
+
+    def get_field_from_registry(self, field_name):
+        value = (
+            api.portal.get_registry_record(field_name, interface=IIoSanitaSettings)
+            or ""
+        )
+        if value:
+            value = json.loads(value)
+        else:
+            value = None
+        return value
 
 
 class IoSanitaSettingsGet(Service):
