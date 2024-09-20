@@ -9,6 +9,7 @@ from zope.configuration import xmlconfig
 import collective.feedback
 import collective.volto.dropdownmenu
 import collective.volto.enhancedlinks
+import collective.volto.formsupport
 import collective.volto.slimheader
 import collective.volto.socialsettings
 import collective.volto.subfooter
@@ -16,7 +17,6 @@ import iosanita.contenttypes
 import iosanita.policy
 import plone.app.caching
 import souper.plone
-import collective.volto.formsupport
 
 
 class TestLayer(ContentTypesTestLayer):
