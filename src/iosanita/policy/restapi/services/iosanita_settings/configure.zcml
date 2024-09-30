@@ -10,6 +10,7 @@
       factory=".get.IoSanitaSettingsGet"
       for="zope.interface.Interface"
       permission="zope2.View"
+      layer="iosanita.policy.interfaces.IIosanitaPolicyLayer"
       name="@iosanita-settings-data"
       />
 

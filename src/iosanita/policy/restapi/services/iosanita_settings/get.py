@@ -34,10 +34,13 @@ class IoSanitaSettings(object):
         return result
 
     def get_field_from_registry(self, field_name):
-        value = (
-            api.portal.get_registry_record(field_name, interface=IIoSanitaSettings)
-            or ""
-        )
+        try:
+            value = (
+                api.portal.get_registry_record(field_name, interface=IIoSanitaSettings)
+                or ""
+            )
+        except KeyError:
+            return None
         if value:
             value = json.loads(value)
         else:

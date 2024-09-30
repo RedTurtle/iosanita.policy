@@ -42,7 +42,15 @@ class IIoSanitaSettings(Interface):
         ],
         value_type=TextLine(),
     )
-
+    search_sections = SourceText(
+        title=_("search_sections_label", default="Sezioni ricerca"),
+        description=_(
+            "search_sections_help",
+            default="Inserire una lista di sezioni per la ricerca.",
+        ),
+        default="",
+        required=False,
+    )
     quick_search = SourceText(
         title=_("quick_search_label", default="Scorcatoie di ricerca"),
         description=_(
