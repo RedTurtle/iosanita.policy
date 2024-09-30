@@ -43,6 +43,7 @@ class SearchFiltersGET(Service):
         for setting in self.get_data_from_registry(field_id="search_sections"):
             items = []
             for section_settings in setting.get("items") or []:
+                expand = section_settings.get("expand", False)
                 for link_item in section_settings.get("linkUrl") or []:
                     uid = ""
                     if isinstance(link_item, str):
@@ -62,7 +63,7 @@ class SearchFiltersGET(Service):
                         (section, self.request),
                         ISerializeToJsonSummary,
                     )()
-                    if section_settings.get("expandItems", True):
+                    if expand:
                         children = section.listFolderContents(
                             contentFilter={"portal_type": utils.getUserFriendlyTypes()}
                         )
