@@ -8,7 +8,8 @@ from zExceptions import BadRequest
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
-
+from collective.taxonomy import PATH_SEPARATOR
+from collective.taxonomy.interfaces import ITaxonomy
 
 ALLOWED_TAXONOMIES = ["parliamo_di", "a_chi_si_rivolge_tassonomia"]
 
@@ -79,6 +80,7 @@ class SearchTassonomieGet(Service):
 
         # add facets
         results["facets"] = self.get_facets(query={index: query[index]})
+        results["infos"] = self.get_infos(index=index, value=value)
         return results
 
     def get_facets(self, query):
@@ -105,3 +107,23 @@ class SearchTassonomieGet(Service):
             portal_types_dict.append({"title": title, "token": ptype})
         facets["portal_types"] = sorted(portal_types_dict, key=lambda x: x["title"])
         return facets
+
+    def get_infos(self, index, value):
+
+        taxonomy = getUtility(ITaxonomy, name=f"collective.taxonomy.{index}")
+        taxonomy_voc = taxonomy.makeVocabulary(self.request.get("LANGUAGE"))
+
+        data = []
+        if not isinstance(value, list):
+            value = [value]
+        for key in value:
+            taxonomy_value = taxonomy_voc.inv_data.get(key, None)
+            if not taxonomy_value:
+                continue
+            if taxonomy_value.startswith(PATH_SEPARATOR):
+                taxonomy_value = taxonomy_value.replace(PATH_SEPARATOR, "", 1)
+
+            data.append(
+                {"title": taxonomy_value.split(PATH_SEPARATOR)[-1], "token": key}
+            )
+        return data
