@@ -66,6 +66,7 @@ setup(
         "redturtle.faq",
         "auslfe.farmacie",
         "redturtle.bandi",
+        "redturtle.rssservice",
         "collective.volto.subsites",
         "redturtle.voltoplugin.editablefooter",
         "collective.volto.subfooter",

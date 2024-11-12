@@ -5,6 +5,9 @@ Changelog
 1.0a1 (unreleased)
 ------------------
 
+- aggiunto redturtle.rssservice
+  [mamico]
+
 - aggiunto collective.volto.formsupport
   [cekk]
 
