@@ -2,7 +2,7 @@
 =========
 
 
-1.0.1 (unreleased)
+1.0.1 (2024-11-22)
 ------------------
 
 - Aggiunto nuovo endpoint: @bandi-search-filters.
