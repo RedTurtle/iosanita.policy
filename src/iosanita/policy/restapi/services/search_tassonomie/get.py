@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from collective.taxonomy import PATH_SEPARATOR
+from collective.taxonomy.interfaces import ITaxonomy
 from iosanita.policy import _
 from plone import api
 from plone.restapi.batching import HypermediaBatch
@@ -8,8 +10,7 @@ from zExceptions import BadRequest
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
-from collective.taxonomy import PATH_SEPARATOR
-from collective.taxonomy.interfaces import ITaxonomy
+
 
 ALLOWED_TAXONOMIES = ["parliamo_di", "a_chi_si_rivolge_tassonomia"]
 
@@ -109,7 +110,6 @@ class SearchTassonomieGet(Service):
         return facets
 
     def get_infos(self, index, value):
-
         taxonomy = getUtility(ITaxonomy, name=f"collective.taxonomy.{index}")
         taxonomy_voc = taxonomy.makeVocabulary(self.request.get("LANGUAGE"))
 
