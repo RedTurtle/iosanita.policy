@@ -1,11 +1,12 @@
-Changelog
+:qChangelog
 =========
 
 
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Aggiunto nuovo endpoint: @bandi-search-filters.
+  [cekk]
 
 
 1.0.0 (2024-11-19)
