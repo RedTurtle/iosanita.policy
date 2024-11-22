@@ -27,9 +27,9 @@
     :alt: License
 
 
-=======================
+================
 IO-Sanita policy
-=======================
+================
 
 Policy per il backend dei portali Io-Sanita.
 

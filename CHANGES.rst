@@ -1,5 +1,11 @@
-:qChangelog
+Changelog
 =========
+
+1.0.2 (Unreleased)
+------------------
+
+- Fix release.
+  [cekk]
 
 
 1.0.1 (2024-11-22)
