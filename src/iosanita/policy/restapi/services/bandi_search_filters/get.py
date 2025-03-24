@@ -19,8 +19,6 @@ class BandiSearchFiltersGet(Service):
         tipologie = []
         subjects = []
 
-        bandi_folder = None
-
         if IPloneSiteRoot.providedBy(self.context):
             for subject in pc.uniqueValuesFor("Subject_bando"):
                 res = api.content.find(Subject_bando=subject)
@@ -37,21 +35,16 @@ class BandiSearchFiltersGet(Service):
 
             for brain in brains:
                 bando = brain.getObject()
+                if not bando.tipologia_bando:
+                    continue
                 found = [x for x in tipologie if x["UID"] == bando.tipologia_bando]
                 if not found:
-                    try:
-                        tipologie.append(
-                            {
-                                "UID": bando.tipologia_bando,
-                                "title": voc_tipologie.getTerm(
-                                    bando.tipologia_bando
-                                ).title,
-                            }
-                        )
-                    except:
-                        import pdb
-
-                        pdb.set_trace()
+                    tipologie.append(
+                        {
+                            "UID": bando.tipologia_bando,
+                            "title": voc_tipologie.getTerm(bando.tipologia_bando).title,
+                        }
+                    )
                 for sub in bando.subject:
                     found = [x for x in subjects if x["UID"] == sub]
                     if not found:
