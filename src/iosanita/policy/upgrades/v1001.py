@@ -52,9 +52,6 @@ def fix_accordion(block):
         "show_block_bg": True,
         "data": {"blocks": {}, "blocks_layout": {"items": []}},
     }
-    import pdb
-
-    pdb.set_trace()
     for subblock in block["subblocks"]:
         accordion_uid = str(uuid4())
         accordion_block = {
