@@ -4,7 +4,8 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add upgrade-step for new accordion block.
+  [cekk]
 
 
 1.0.2 (2024-11-22)
