@@ -1,9 +1,9 @@
 from . import logger
+from collective.volto.blocksfield.field import BlocksField
 from plone import api
 from plone.dexterity.utils import iterSchemata
-from collective.volto.blocksfield.field import BlocksField
-from zope.schema import getFields
 from uuid import uuid4
+from zope.schema import getFields
 
 
 def upgrade(setup_tool=None):
