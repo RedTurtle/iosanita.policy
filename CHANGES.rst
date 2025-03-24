@@ -6,6 +6,8 @@ Changelog
 
 - Add upgrade-step for new accordion block.
   [cekk]
+- Temp disabled tests because there is a private dependency: auslfe.farmacie.
+  [cekk]
 
 
 1.0.2 (2024-11-22)
