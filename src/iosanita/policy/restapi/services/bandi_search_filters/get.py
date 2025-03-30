@@ -19,8 +19,6 @@ class BandiSearchFiltersGet(Service):
         tipologie = []
         subjects = []
 
-        bandi_folder = None
-
         if IPloneSiteRoot.providedBy(self.context):
             for subject in pc.uniqueValuesFor("Subject_bando"):
                 res = api.content.find(Subject_bando=subject)
@@ -48,7 +46,7 @@ class BandiSearchFiltersGet(Service):
                                 ).title,
                             }
                         )
-                    except:
+                    except:  # noqa
                         import pdb
 
                         pdb.set_trace()

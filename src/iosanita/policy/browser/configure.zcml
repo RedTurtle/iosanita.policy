@@ -18,4 +18,11 @@
       layer="iosanita.policy.interfaces.IIosanitaPolicyLayer"
       />
 
+  <browser:page
+      name="crea_area_trasparenza"
+      for="*"
+      class=".trasparenza.CreaTrasparenza"
+      permission="zope2.View"
+      />
+
 </configure>
