@@ -22,6 +22,7 @@ def upgrade(setup_tool=None):
                 new_accordion_block = fix_accordion(block=block)
                 if new_accordion_block:
                     blocks[uid] = new_accordion_block
+            obj.blocks = blocks
         for schema in iterSchemata(obj):
             for name, field in getFields(schema).items():
                 if not isinstance(field, BlocksField):
