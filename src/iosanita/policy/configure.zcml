@@ -45,6 +45,8 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <include package=".upgrades" />
+
   <subscriber
       for="Products.CMFCore.interfaces.ISiteRoot
            zope.traversing.interfaces.IBeforeTraverseEvent"
