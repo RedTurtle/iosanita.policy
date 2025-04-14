@@ -49,9 +49,7 @@ class BandiSearchFiltersGet(Service):
                             }
                         )
                     except:
-                        import pdb
-
-                        pdb.set_trace()
+                        import logging; logging.exception("invalid tipologia bando %s", bando.tipologia_bando)
                 for sub in bando.subject:
                     found = [x for x in subjects if x["UID"] == sub]
                     if not found:
