@@ -6,7 +6,6 @@ from plone.app.testing import IntegrationTesting
 from plone.testing.zope import WSGI_SERVER_FIXTURE
 from zope.configuration import xmlconfig
 
-import auslfe.farmacie
 import collective.feedback
 import collective.volto.dropdownmenu
 import collective.volto.enhancedlinks
@@ -27,7 +26,6 @@ import souper.plone
 class TestLayer(ContentTypesTestLayer):
     def setUpZope(self, app, configurationContext):
         super().setUpZope(app, configurationContext)
-        self.loadZCML(package=auslfe.farmacie)
         self.loadZCML(package=collective.feedback)
         self.loadZCML(package=collective.volto.dropdownmenu)
         self.loadZCML(package=collective.volto.enhancedlinks)

@@ -64,7 +64,6 @@ setup(
         "collective.volto.socialsettings",
         "collective.volto.secondarymenu",
         "redturtle.faq",
-        "auslfe.farmacie",
         "redturtle.bandi",
         "redturtle.rssservice",
         "collective.volto.subsites",
