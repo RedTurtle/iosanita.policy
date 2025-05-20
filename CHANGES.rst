@@ -4,7 +4,8 @@ Changelog
 1.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove dependency with auslfe.farmacie.
+  [cekk]
 
 
 1.0.3 (2025-04-02)

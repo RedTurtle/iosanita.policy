@@ -37,7 +37,7 @@ class IoSanitaSettings(object):
         try:
             value = (
                 api.portal.get_registry_record(field_name, interface=IIoSanitaSettings)
-                or ""
+                or ""  # noqa
             )
         except KeyError:
             return None
