@@ -4,7 +4,8 @@ Changelog
 1.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change contatti_testata data structure.
+  [cekk]
 
 
 1.0.4 (2025-05-29)
