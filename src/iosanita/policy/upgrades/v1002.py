@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from . import logger
-from plone import api
 from iosanita.policy.interfaces import IIoSanitaSettings
+from plone import api
 
 import json
 
