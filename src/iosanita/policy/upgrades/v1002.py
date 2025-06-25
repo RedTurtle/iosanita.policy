@@ -21,7 +21,7 @@ def upgrade(setup_tool=None):
     value = [
         {
             "rootPath": "/",
-            "items": [value],
+            "items": value,
         },
     ]
 
