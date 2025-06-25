@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.5 (unreleased)
+1.0.5 (2025-06-25)
 ------------------
 
 - Change contatti_testata data structure.
