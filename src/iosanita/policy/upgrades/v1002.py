@@ -12,7 +12,7 @@ def upgrade(setup_tool=None):
     logger.info("Running upgrade (Python): Fix contatti_testata structure")
     value = (
         api.portal.get_registry_record("contatti_testata", interface=IIoSanitaSettings)
-        or ""
+        or ""  # noqa
     )
     if not value:
         return
