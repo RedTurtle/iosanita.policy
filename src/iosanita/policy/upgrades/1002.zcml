@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    >
+
+  <gs:registerProfile
+      name="1002"
+      title="Fix contatti_testata structure"
+      description="Configuration for version 1002"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      directory="1002"
+      />
+
+  <gs:upgradeSteps
+      profile="iosanita.policy:default"
+      source="1001"
+      destination="1002"
+      >
+
+    <gs:upgradeStep
+        title="Fix contatti_testata structure"
+        description=""
+        handler=".v1002.upgrade"
+        />
+
+  </gs:upgradeSteps>
+
+</configure>
