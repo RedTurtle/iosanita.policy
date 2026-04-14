@@ -4,7 +4,8 @@ Changelog
 1.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not return Plone Site and TempFolder in search filters.
+  [cekk]
 
 
 1.0.5 (2025-06-25)

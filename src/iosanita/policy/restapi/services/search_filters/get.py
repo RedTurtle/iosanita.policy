@@ -98,7 +98,10 @@ class SearchFiltersGET(Service):
         ptool = api.portal.get_tool("plone_utils")
         registry = getUtility(IRegistry)
         search_settings = registry.forInterface(ISearchSchema, prefix="plone")
-        types_not_searched = search_settings.types_not_searched
+        types_not_searched = list(search_settings.types_not_searched) + [
+            "Plone Site",
+            "TempFolder",
+        ]
         types = [
             {
                 "label": translate(ttool[t].Title(), context=self.request),
