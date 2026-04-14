@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.6 (unreleased)
+1.0.6 (2026-04-14)
 ------------------
 
 - Do not return Plone Site and TempFolder in search filters.
