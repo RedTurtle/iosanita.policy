@@ -31,8 +31,8 @@ class ListingBlockExportViewDownload(BaseExportViewDownload):
     def __call__(self):
         self._request = self.request
         self._block = self._extract_block()
-        self._items = self.get_data()
-        self.columns = self.get_columns(data=self._items)
+        items = self.get_data()
+        self.columns = self.get_columns(data=items)
         self.headers = self.get_headers()
         return super().__call__()
 
