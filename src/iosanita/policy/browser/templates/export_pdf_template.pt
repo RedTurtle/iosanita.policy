@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal" tal:define="
+        rows python: options.get('rows', []);
+        headers python: options.get('headers', []);
+        " i18n:domain="iosanita.contenttypes">
+    <head>
+        <style tal:content="context/pdf_styles|nothing" />
+    </head>
+    <body>
+        <header class="header" tal:define="title context/pdf_title|nothing; logo context/pdf_logo|nothing" tal:condition="title">
+            <div id="logo" tal:condition="logo" tal:content="structure logo"/>
+            <h1 class="title">${title}</h1>
+        </header>
+
+        <p class="description first-page" tal:define="description context/pdf_description|nothing" tal:condition="description" tal:content="structure description"></p>
+
+        <!-- il footer deve trovarsi in questa posizione per essere presente in tutte le pagine,
+             non va spostato in fondo
+        -->
+        <!-- <footer class="footer" tal:condition="context/with_footer|nothing">
+            <span i18n:translate="last_update_footer">Ultimo aggiornamento: 
+                <tal:dd i18n:name="date" tal:content="context/pdf_last_update|nothing" />
+            </span>
+        </footer> -->
+
+        <section>
+            <table class="export-table">
+                <thead>
+                    <tr>
+                        <tal:headers repeat="header python:headers[1:]">
+                            <th tal:content="header"></th>
+                        </tal:headers>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr tal:repeat="item rows" tal:attributes="class python:'row-' + (repeat['item'].even() and 'even' or 'odd')">
+                        <td tal:define="item_url python:item[0];
+                                        item_title python:item[1]">
+                            <a href="${item_url}" title="{item_title}">${item_title}</a>
+                        </td>
+
+                        <tal:cells repeat="cell python:item[2:]">
+                            <td tal:define="is_download python:cell and ('@@download' in cell) or False">
+                                <a href="${cell}" tal:condition="is_download" title="scarica pdf">Scarica</a>
+                                <span tal:condition="not: is_download">${cell}</span>
+                            </td>
+                        </tal:cells>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </body>
+</html>
