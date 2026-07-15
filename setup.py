@@ -70,6 +70,7 @@ setup(
         "redturtle.voltoplugin.editablefooter",
         "collective.volto.subfooter",
         "collective.volto.formsupport",
+        "rer.blocks2html",
     ],
     extras_require={
         "test": [
