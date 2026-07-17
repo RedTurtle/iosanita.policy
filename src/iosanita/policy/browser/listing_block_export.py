@@ -16,6 +16,7 @@ from io import StringIO
 
 import re
 from datetime import datetime
+from zExceptions import NotFound
 
 
 class IListingBlockExportViewTraverser(IExportViewTraverser):
@@ -37,16 +38,16 @@ class ListingBlockExportViewDownload(BaseExportViewDownload):
         self.columns = self.get_columns(data=items)
         self.headers = self.get_headers()
         return super().__call__()
-
+    
     def _extract_block(self):
         block_id = self._request.form.get("block_id", "")
         if not block_id:
-            raise Exception("block_id missing")
+            raise NotFound("block_id missing")
         context = self.context.context
         blocks = getattr(context, "blocks", {}) or {}
         block = blocks.get(block_id)
         if not block:
-            raise Exception(f"Block {block_id} not found")
+            raise NotFound(f"Block {block_id} not found")
         return block
 
     def get_data(self):
@@ -166,8 +167,9 @@ class ListingBlockExportViewDownload(BaseExportViewDownload):
             return self._html_to_text(html)
         if isinstance(value, dict) and "download" in value:
             url = value["download"]
+            title = value.get("title", value.get("filename", url))
             if self.export_type == "pdf":
-                return f'<a href="{url}">Immagine</a>'
+                return f'<a href="{url}">{title}</a>'
             return url
         if isinstance(value, dict):
             return value.get("title", value.get("token", ""))
