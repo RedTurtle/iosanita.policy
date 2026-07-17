@@ -18,4 +18,30 @@
       layer="iosanita.policy.interfaces.IIosanitaPolicyLayer"
       />
 
+
+  <!-- export views -->
+  <browser:page
+      name="export_pdf_template"
+      for="*"
+      template="templates/export_pdf_template.pt"
+      permission="zope2.View"
+      layer="iosanita.policy.interfaces.IIosanitaPolicyLayer"
+      />
+
+  <browser:page
+      name="download"
+      for=".listing_block_export.IListingBlockExportViewTraverser"
+      class=".listing_block_export.ListingBlockExportViewDownload"
+      permission="zope2.View"
+      layer="iosanita.policy.interfaces.IIosanitaPolicyLayer"
+      />
+
+  <browser:page
+      name="listing-block-export"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      class=".listing_block_export.ListingBlockExportViewTraverser"
+      permission="zope2.View"
+      layer="iosanita.policy.interfaces.IIosanitaPolicyLayer"
+      />
+
 </configure>

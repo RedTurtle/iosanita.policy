@@ -11,7 +11,6 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
 
-
 ALLOWED_TAXONOMIES = ["parliamo_di", "a_chi_si_rivolge_tassonomia"]
 
 BASE_FILTERS = [
