@@ -38,7 +38,7 @@ class ListingBlockExportViewDownload(BaseExportViewDownload):
         self.columns = self.get_columns(data=items)
         self.headers = self.get_headers()
         return super().__call__()
-    
+
     def _extract_block(self):
         block_id = self._request.form.get("block_id", "")
         if not block_id:
