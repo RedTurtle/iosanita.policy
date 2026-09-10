@@ -11,7 +11,6 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
 
-
 ALLOWED_TAXONOMIES = ["parliamo_di", "a_chi_si_rivolge_tassonomia"]
 
 BASE_FILTERS = [
@@ -62,6 +61,10 @@ class SearchTassonomieGet(Service):
         else:
             # return all
             query[index] = all_values
+
+        # if sorting on Date then return more recent items first
+        if query.get("sort_on", "") == "Date":
+            query.update({"sort_order": "reverse"})
 
         # and do search
         brains = api.content.find(**query)
