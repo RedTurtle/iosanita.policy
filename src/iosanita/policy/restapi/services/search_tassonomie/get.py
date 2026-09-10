@@ -62,8 +62,8 @@ class SearchTassonomieGet(Service):
             # return all
             query[index] = all_values
 
-        # if sort order is not provided return more recent items first
-        if not query.get("sort_order", ""):
+        # if sorting on Date then return more recent items first
+        if query.get("sort_on", "") == "Date":
             query.update({"sort_order": "reverse"})
 
         # and do search
