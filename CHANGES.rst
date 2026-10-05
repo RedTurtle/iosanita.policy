@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.7 (unreleased)
+1.0.7 (2026-10-05)
 ------------------
 
 - search-tassonomie: if sort order is not provided return more recent items first.
