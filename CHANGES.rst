@@ -4,7 +4,8 @@ Changelog
 1.0.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- search-tassonomie: translate portal_types facets titles.
+  [fedevancin]
 
 
 1.0.7 (2026-10-05)
@@ -12,8 +13,6 @@ Changelog
 
 - search-tassonomie: if sort order is not provided return more recent items first.
   [daniele]
-- search-tassonomie: translate portal_types facets titles.
-  [fedevancin]
 
 
 1.0.6 (2026-04-14)
