@@ -105,7 +105,7 @@ class SearchTassonomieGet(Service):
         portal_types_dict = []
         for ptype in portal_types:
             try:
-                title = vocabulary.getTerm(ptype).title
+                title = api.portal.translate(vocabulary.getTerm(ptype).title)
             except LookupError:
                 title = ptype
             portal_types_dict.append({"title": title, "token": ptype})

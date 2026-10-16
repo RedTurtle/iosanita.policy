@@ -6,6 +6,8 @@ Changelog
 
 - search-tassonomie: if sort order is not provided return more recent items first.
   [daniele]
+- search-tassonomie: translate portal_types facets titles.
+  [fedevancin]
 
 
 1.0.6 (2026-04-14)
