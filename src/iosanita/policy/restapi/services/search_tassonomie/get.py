@@ -9,7 +9,6 @@ from plone.restapi.services import Service
 from zExceptions import BadRequest
 from zope.component import getMultiAdapter
 from zope.component import getUtility
-from zope.i18n import translate
 from zope.schema.interfaces import IVocabularyFactory
 
 ALLOWED_TAXONOMIES = ["parliamo_di", "a_chi_si_rivolge_tassonomia"]
@@ -106,7 +105,7 @@ class SearchTassonomieGet(Service):
         portal_types_dict = []
         for ptype in portal_types:
             try:
-                title = translate(vocabulary.getTerm(ptype).title, context=self.request)
+                title = api.portal.translate(vocabulary.getTerm(ptype).title)
             except LookupError:
                 title = ptype
             portal_types_dict.append({"title": title, "token": ptype})
