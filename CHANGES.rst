@@ -4,8 +4,8 @@ Changelog
 1.0.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Added export view to download data from table block listing as CSV or PDF.
+  [daniele]
 
 1.0.8 (2026-10-16)
 ------------------

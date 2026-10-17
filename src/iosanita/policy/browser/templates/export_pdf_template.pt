@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:define="
+        rows python: options.get('rows', []);
+        headers python: options.get('headers', []);
+      "
+      i18n:domain="iosanita.contenttypes">
+<head>
+  <style tal:content="context/pdf_styles|nothing" />
+</head>
+<body>
+  <header class="header"
+          tal:define="title context/pdf_title|nothing; logo context/pdf_logo|nothing"
+          tal:condition="title">
+    <div id="logo" tal:condition="logo" tal:content="structure logo"/>
+    <h1 class="title">${title}</h1>
+  </header>
+
+  <p class="description first-page"
+     tal:define="description context/pdf_description|nothing"
+     tal:condition="description"
+     tal:content="structure description"></p>
+
+  <section>
+    <table class="export-table">
+      <thead>
+        <tr>
+          <tal:headers repeat="header python:headers">
+            <th tal:content="header"></th>
+          </tal:headers>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="row rows"
+            tal:attributes="class python:'row-' + (repeat['row'].even() and 'even' or 'odd')">
+          <td tal:define="item_url python:row[0]; item_title python:row[1]">
+            <a tal:attributes="href item_url; title item_title"
+               tal:content="item_title"></a>
+          </td>
+          <tal:cells repeat="cell python:row[2:]">
+            <td tal:define="is_download python:cell and ('@@download' in cell) or False">
+              <a href="${cell}" tal:condition="is_download" title="scarica pdf">Scarica</a>
+              <span tal:condition="not: is_download" tal:content="structure cell"></span>
+            </td>
+          </tal:cells>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
